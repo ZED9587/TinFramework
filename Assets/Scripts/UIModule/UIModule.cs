@@ -1,21 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TinFramework;
 
-public class UIModule : IMonoModule
+public class UIModule : ModuleUnit<UIModule>
 {
-    public void InitModule()
-    {
-        Debug.Log("初始化UI模块。。。");       
+
+    public void OpenPanel() {
+
     }
 
-    public void ReleaseModle()
-    {
-        
+    public void ClosePanel() {
+
     }
 
-    public void UpdateModule()
+    public void RefreshPanel() {
+
+    }
+
+    public override void OnInitModule()
     {
-        
+        base.OnInitModule();
+    }
+
+    public override void OnUpdateModule()
+    {
+        base.OnUpdateModule();
+    }
+
+    public override void OnReleaseModule()
+    {
+        base.OnReleaseModule();
     }
 }

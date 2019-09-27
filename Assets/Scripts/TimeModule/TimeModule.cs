@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TimeModule : IMonoModule
+public class TimeModule
 {
     public void InitModule()
     {

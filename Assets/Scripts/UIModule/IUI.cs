@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TinFramework;
 
-public class ResModule : ModuleUnit<ResModule>
+public interface IUI
 {
-
+    void Open();
+    void Refresh();
+    void Close();
 }
