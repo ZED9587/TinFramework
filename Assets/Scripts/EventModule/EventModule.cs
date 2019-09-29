@@ -35,8 +35,9 @@ public class EventModule : ModuleUnit<EventModule>
         }
     }
 
-    public void Send<T>(T t) {
-        var type = typeof(T);
+    public void Send<T>() where T : class, new() {
+        T t = new T();
+        var type = t.GetType();
         IRegisterations registerations = null;
         if (dicEventType.TryGetValue(type,out registerations))
         {

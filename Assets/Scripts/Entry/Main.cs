@@ -7,21 +7,21 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TestEventModule();
+        UIModule.Ins.InitModule();
     }
 
     #region Event Example
     public class EventA {
-        public string strEvent = "测试。";
+        public string strEvent = "执行事件A。";
     }
 
     private void TestEventModule() {
         EventModule.Ins.Register<EventA>(OnRecieveEventA);
-        EventModule.Ins.Send<EventA>(new EventA());
+        EventModule.Ins.Send<EventA>();
     }
 
     private void OnRecieveEventA(EventA a) {
-        Debug.Log("事件模块测试完毕。" + a.strEvent);
+        Debug.Log("事件模块测试--->" + a.strEvent);
     }
     #endregion
 }
