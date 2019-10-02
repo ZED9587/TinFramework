@@ -1,63 +1,66 @@
-﻿using System.Collections;
+/****************************************************
+文件：EventModule.cs
+作者：ZED
+日期：2019/10/02 14:04:43
+功能：事件管理模块
+*****************************************************/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TinFramework;
 using System;
 
-public class EventModule : ModuleUnit<EventModule>
+namespace TinFramework.Kernel
 {
-    private Dictionary<Type, IRegisterations> dicEventType = new Dictionary<Type, IRegisterations>();
-
-    public void Register<T>(Action<T> onReceive)
+    public class EventModule : MonoSingletonT<EventModule>
     {
-        var type = typeof(T);
-        IRegisterations registerations = null;
-        if (dicEventType.TryGetValue(type, out registerations))
+        private Dictionary<Type, IRegisterations> dicEventType;
+
+        protected override void OnInitialized()
         {
-            var reg = registerations as Registerations<T>;
-            reg.OnReceives += onReceive;
+            base.OnInitialized();
+            if (null == dicEventType)
+                dicEventType = new Dictionary<Type, IRegisterations>();
         }
-        else
+
+        public void Register<T>(Action<T> onReceive)
         {
-            var reg = new Registerations<T>();
-            reg.OnReceives += onReceive;
-            dicEventType.Add(type, reg);
+            var type = typeof(T);
+            IRegisterations registerations = null;
+            if (dicEventType.TryGetValue(type, out registerations))
+            {
+                var reg = registerations as Registerations<T>;
+                reg.OnReceives += onReceive;
+            }
+            else
+            {
+                var reg = new Registerations<T>();
+                reg.OnReceives += onReceive;
+                dicEventType.Add(type, reg);
+            }
         }
-    }
 
-    public void UnRegister<T>(Action<T> onReceive) {
-        var type = typeof(T);
-        IRegisterations registerations = null;
-        if (dicEventType.TryGetValue(type,out registerations))
+        public void UnRegister<T>(Action<T> onReceive)
         {
-            var reg = registerations as Registerations<T>;
-            reg.OnReceives -= onReceive;
+            var type = typeof(T);
+            IRegisterations registerations = null;
+            if (dicEventType.TryGetValue(type, out registerations))
+            {
+                var reg = registerations as Registerations<T>;
+                reg.OnReceives -= onReceive;
+            }
         }
-    }
 
-    public void Send<T>() where T : class, new() {
-        T t = new T();
-        var type = t.GetType();
-        IRegisterations registerations = null;
-        if (dicEventType.TryGetValue(type,out registerations))
+        public void Send<T>() where T : class, new()
         {
-            var reg = registerations as Registerations<T>;
-            reg.OnReceives(t);
+            T t = new T();
+            var type = t.GetType();
+            IRegisterations registerations = null;
+            if (dicEventType.TryGetValue(type, out registerations))
+            {
+                var reg = registerations as Registerations<T>;
+                reg.OnReceives(t);
+            }
         }
-    }
-
-    public override void OnInitModule()
-    {
-        base.OnInitModule();
-    }
-
-    public override void OnUpdateModule()
-    {
-        base.OnUpdateModule();
-    }
-
-    public override void OnReleaseModule()
-    {
-        base.OnReleaseModule();
     }
 }
+

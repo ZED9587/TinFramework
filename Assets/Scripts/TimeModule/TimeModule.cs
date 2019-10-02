@@ -1,42 +1,18 @@
-﻿using System;
+/****************************************************
+文件：TimeModule.cs
+作者：ZED
+日期：2019/10/02 14:02:26
+功能：时间管理模块
+*****************************************************/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class TimeModule
+namespace TinFramework.Kernel
 {
-    public void InitModule()
+    public class TimeModule : MonoSingletonT<TimeModule>
     {
-        
-    }
 
-    public void ReleaseModle()
-    {
-        
-    }
-
-    public void UpdateModule()
-    {
-        
-    }
-
-    /// <summary>
-    /// delay action.
-    /// </summary>
-    /// <param name="seconds"></param>
-    /// <param name="action"></param>
-    public void DelayNSeconds(int seconds,UnityAction action) {
-
-    }
-
-    public DateTime Now() {
-        return DateTime.Now;
-    }
-
-    public DateTime GetHoursLater(int hours) {
-        DateTime dateTime = Now();
-        dateTime.AddHours(hours);
-        return dateTime;
     }
 }
+

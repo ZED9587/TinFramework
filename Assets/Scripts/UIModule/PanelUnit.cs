@@ -1,45 +1,38 @@
-﻿using System.Collections;
+/****************************************************
+文件：PanelUnit.cs
+作者：ZED
+日期：2019/10/02 14:43:50
+功能：Panel界面基类
+*****************************************************/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PanelUnit : IUI
+namespace TinFramework.UI
 {
-
-    private Dictionary<string, PopUIUnit> dicPopUIs = null;
-    
-    public void Close()
+    public class PanelUnit : IUI
     {
-        OnClosePanel();
-    }
+        public virtual void OnOpenPanel() { }
 
-    public void Open()
-    {
-        OnOpenPanel();
-    }
+        public virtual void OnClosePanel() { }
 
-    public void Refresh()
-    {
-        OnRefreshPanel();
-    }
+        public virtual void OnRefreshPanel() { }
 
-    protected void OpenPopUI(string popUIName) {
-        if (!string.IsNullOrEmpty(popUIName))
+        public void Open()
         {
+            throw new System.NotImplementedException();
+        }
 
+        public void Refresh()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Close()
+        {
+            throw new System.NotImplementedException();
         }
     }
-
-    protected void RefreshPopUI() {
-
-    }
-
-    protected void ClosePopUI() {
-
-    }
-
-    public virtual void OnOpenPanel() { }
-
-    public virtual void OnClosePanel() { }
-
-    public virtual void OnRefreshPanel() { }
 }
+
+

@@ -6,14 +6,11 @@ namespace TinFramework
 {
     public interface IModule
     {
+        Transform parent { get; }
         /// <summary>
         /// Module Init
         /// </summary>
         void InitModule();
-        /// <summary>
-        /// Module Update
-        /// </summary>
-        void UpdateModule();
         /// <summary>
         /// Module Release
         /// </summary>
