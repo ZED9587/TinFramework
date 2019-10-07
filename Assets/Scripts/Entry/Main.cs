@@ -8,13 +8,11 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Debug.Log(UIModule.Ins.gameObject.ToString());
-        //Debug.Log(DBModule.Ins.gameObject.ToString());
-        //Debug.Log(ResModule.Ins.gameObject.ToString());
-        //Debug.Log(EventModule.Ins.gameObject.ToString());
-        Debug.Log(TimeModule.Ins.gameObject.ToString());
-        Debug.Log(TimeModule.Ins.gameObject.ToString());
-        Debug.Log(TimeModule.Ins.gameObject.ToString());
+        //GameObject  go = ResModule.Ins.LoadAB("Capsule");
+        //if (go)
+        //{
+        //    GameObject tempGO = GameObject.Instantiate<GameObject>(go);
+        //}
     }
 
     #region Event Example
