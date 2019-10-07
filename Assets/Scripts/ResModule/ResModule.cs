@@ -62,6 +62,13 @@ namespace TinFramework.Kernel
         {
             base.OnReleaseModule();
         }
+
+        #region 加载AssetBundle资源
+        public void LoadAB(string path) {
+            AssetBundle assetBundle = AssetBundle.LoadFromFile(path);
+
+        }
+        #endregion
     }
 }
 
