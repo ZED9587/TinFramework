@@ -7,6 +7,12 @@ public class Main : MonoBehaviour
 {
     public bool isLog = true;
 
+    public bool isServer = false;
+    [HideInInspector]
+    public string URL = string.Empty;
+    [HideInInspector]
+    public string PORT = string.Empty;
+
     // Start is called before the first frame update
     void Start()
     {
