@@ -18,6 +18,8 @@ public class Main : MonoBehaviour
     {
         Initialized();
         //LogModule.Ins.LogUI("检测出现ERROR!!!");
+        GameObject go = ResModule.Ins.LoadAB("cube");
+        Debug.Log(go.name);
     }
 
     private void Initialized() {
