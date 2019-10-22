@@ -8,7 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class APP : MonoBehaviour
+public class APP
 {
     private static UIModule _uiModule = null;
     public static UIModule UI {
@@ -35,7 +35,7 @@ public class APP : MonoBehaviour
     }
 
     private static EventModule _eventModule = null;
-    public static EventModule Event {
+    public static EventModule EVENT {
         get
         {
             if (null == _eventModule)
@@ -59,12 +59,25 @@ public class APP : MonoBehaviour
         private set { _netModule = value; }
     }
 
-    private void OnDestroy()
+    public static void OnDispose()
     {
-        APP.Event = null;
-        APP.RES = null;
-        APP.NET = null;
-        APP.UI = null;
+        Debug.Log("模块释放完毕");
+        if (null != APP.RES)
+        {
+            APP.RES = null;
+        }
+        if (null != APP.EVENT)
+        {
+            APP.EVENT = null;
+        }
+        if (null != APP.NET)
+        {
+            APP.NET = null;
+        }
+        if (null != APP.UI)
+        {
+            APP.UI = null;
+        }
     }
 }
 

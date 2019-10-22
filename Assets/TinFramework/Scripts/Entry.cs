@@ -13,13 +13,12 @@ public class Entry : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        APP.RES.LLL();
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDestroy()
     {
-        
+        APP.OnDispose();    
     }
 }
 

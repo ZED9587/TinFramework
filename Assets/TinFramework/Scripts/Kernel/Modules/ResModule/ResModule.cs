@@ -33,5 +33,9 @@ public class ResModule
         ResourceRequest rq = Resources.LoadAsync<GameObject>(path);
         return null;
     }
+
+    public void LLL() {
+        Debug.Log("这是资源加载模块……");
+    }
 }
 
