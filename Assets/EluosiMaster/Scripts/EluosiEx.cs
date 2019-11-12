@@ -13,6 +13,8 @@ public class EluosiEx : MonoBehaviour
     public RectTransform tranMAPRoot = null;
     public RectTransform tranMAPUnit = null;
 
+    public RectTransform moveMAP = null;
+
     private EluosiMAP eluosiMAP = null;
 
     // Start is called before the first frame update

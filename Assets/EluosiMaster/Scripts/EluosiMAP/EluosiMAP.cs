@@ -31,12 +31,16 @@ public class EluosiMAP
             if (goMapUnit)
             {
                 RectTransform rect = goMapUnit.GetComponent<RectTransform>();
-                float x = (i % mapSetting.columCount) * mapSetting.eluosiUnitWidth;
-                float y = Mathf.CeilToInt(i / mapSetting.columCount) * mapSetting.eluosiUnitHeight;
+                int x_index = i % mapSetting.columCount;
+                int y_index = Mathf.CeilToInt(i / mapSetting.columCount);
+                rect.name = x_index.ToString() + "|" + y_index.ToString();
+                float x = x_index * mapSetting.eluosiUnitWidth;
+                float y = y_index * mapSetting.eluosiUnitHeight;
                 rect.SetParent(tranMapRoot);
                 rect.localScale = Vector3.one;
                 rect.localRotation = Quaternion.identity;
-                rect.anchoredPosition = new Vector3(x, y, 0);
+                rect.localPosition = Vector3.zero;
+                rect.anchoredPosition = new Vector2(x, y);
             }
         }
     }
