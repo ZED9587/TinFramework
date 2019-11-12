@@ -10,6 +10,6 @@ using UnityEngine;
 
 public class EluosiEntry : TinLunched
 {
-
+    
 }
 

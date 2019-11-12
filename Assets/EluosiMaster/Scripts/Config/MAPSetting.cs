@@ -10,10 +10,10 @@ using UnityEngine;
 
 public class MAPSetting
 {
-    private float eluosiUnitHeight => 0;
-    private float eluosiUnitWidth => 0;
-    private int rowCount => 0;
-    private int columCount => 0;
+    public float eluosiUnitHeight => 72;
+    public float eluosiUnitWidth => 72;
+    public int rowCount => 11;
+    public int columCount => 8;
 
     public float totalWidth = 0;
     public float totalHeight = 0;
