@@ -12,7 +12,7 @@ using System.Reflection;
 
 public class GenerateSOFile : Editor
 {
-    [MenuItem("Assets/Tin自动生成组/生成ScriptableObject文件。",priority = 0)]
+    [MenuItem("Assets/Tin自动生成组/生成ScriptableObject文件。")]
     public static void Generate()
     {
         Object so = Selection.activeObject;
