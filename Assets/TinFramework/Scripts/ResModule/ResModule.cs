@@ -8,6 +8,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class ResModule
 {
@@ -63,6 +64,11 @@ public class ResModule
 #else
         return default(T);
 #endif
+    }
+
+    public static TimelinePlayable GetTimeLine()
+    {
+        return null;
     }
 }
 

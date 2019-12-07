@@ -7,6 +7,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class Entry : MonoBehaviour
 {
@@ -14,12 +15,12 @@ public class Entry : MonoBehaviour
     void Start()
     {
 
-        APP.RES.LLL();
+        //APP.RES.LLL();
     }
 
     void OnDestroy()
     {
-        APP.OnDispose();    
+        //APP.OnDispose();    
     }
 }
 
